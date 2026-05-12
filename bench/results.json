@@ -1,0 +1,58 @@
+[
+  {
+    "backend": "numpy_brute",
+    "n_corpus": 50000,
+    "n_queries": 200,
+    "k": 10,
+    "build_secs": 0.034,
+    "rss_mb_after_build": 142.7,
+    "qps": 364.9,
+    "latency_p50_us": 2686.1,
+    "latency_p95_us": 3215.6,
+    "latency_p99_us": 3805.0,
+    "latency_max_us": 5734.2,
+    "recall_at_k": 1.0
+  },
+  {
+    "backend": "faiss_flat",
+    "n_corpus": 50000,
+    "n_queries": 200,
+    "k": 10,
+    "build_secs": 0.081,
+    "rss_mb_after_build": 215.2,
+    "qps": 236.5,
+    "latency_p50_us": 4115.7,
+    "latency_p95_us": 5587.9,
+    "latency_p99_us": 6165.3,
+    "latency_max_us": 8363.5,
+    "recall_at_k": 1.0
+  },
+  {
+    "backend": "faiss_hnsw",
+    "n_corpus": 50000,
+    "n_queries": 200,
+    "k": 10,
+    "build_secs": 1.802,
+    "rss_mb_after_build": 226.7,
+    "qps": 3583.3,
+    "latency_p50_us": 257.7,
+    "latency_p95_us": 381.4,
+    "latency_p99_us": 484.5,
+    "latency_max_us": 606.1,
+    "recall_at_k": 0.929
+  },
+  {
+    "backend": "chroma",
+    "n_corpus": 50000,
+    "n_queries": 200,
+    "k": 10,
+    "build_secs": 8.143,
+    "rss_mb_after_build": 329.2,
+    "qps": 112.0,
+    "latency_p50_us": 8606.9,
+    "latency_p95_us": 11189.3,
+    "latency_p99_us": 15647.5,
+    "latency_max_us": 17024.4,
+    "recall_at_k": 0.982
+  }
+]
