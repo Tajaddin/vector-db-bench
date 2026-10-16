@@ -26,7 +26,7 @@ def main() -> int:
     except Exception:
         pass
     p = argparse.ArgumentParser()
-    p.add_argument("--n-corpus", type=int, default=100_000)
+    p.add_argument("--n-corpus", type=int, default=50_000)  # matches the README table
     p.add_argument("--n-queries", type=int, default=200)
     p.add_argument("--dim", type=int, default=256)
     p.add_argument("--k", type=int, default=10)

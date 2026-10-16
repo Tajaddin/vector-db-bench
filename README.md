@@ -1,6 +1,6 @@
 # vector-db-bench
 
-> Reproducible head-to-head benchmark of vector-DB backends on **QPS, recall@10, p99 latency, and RSS memory**. Pure Python harness, no Docker required. **FAISS-HNSW: 15× QPS lift over brute-force at 93% recall@10**, on 50K × 256-D synthetic vectors.
+> Reproducible head-to-head benchmark of vector-DB backends on **QPS, recall@10, p99 latency, and RSS memory**. Pure Python harness, no Docker required. **FAISS-HNSW: ~10× QPS over exact brute-force search (15× over exact FAISS-flat) at 93% recall@10**, on 50K × 256-D synthetic vectors.
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE) [![Tests](https://img.shields.io/badge/tests-5%20passing-brightgreen)](#tests) [![Python](https://img.shields.io/badge/python-3.10%2B-blue)]()
 
@@ -19,7 +19,7 @@
 
 * `numpy_brute` is the gold baseline — exact recall, no library required, but 10× slower than FAISS HNSW.
 * `faiss_flat` matches gold recall but is slower on this hardware due to extra memory layout work.
-* **`faiss_hnsw` is the right default for medium-scale RAG**: 15× QPS over brute at 92.9% recall@10. Build cost rises to 1.8s but is a one-shot fixed cost.
+* **`faiss_hnsw` is the right default for medium-scale RAG**: ~10× QPS over exact NumPy search (15× over FAISS-flat) at 92.9% recall@10. Build cost rises to 1.8s but is a one-shot fixed cost.
 * `chroma` ships an HNSW index too but with full ID/metadata bookkeeping — slower queries in exchange for production amenities (persistence, metadata filters, server mode).
 
 Raw output: [`bench/results.json`](bench/results.json). Reproduce: `python bench/run_bench.py`.
